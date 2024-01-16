@@ -1,35 +1,40 @@
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.local/share/nvim/plugged')
 
-Plug 'akinsho/git-conflict.nvim' -- Git Merge conflicts
-Plug 'ap/vim-css-color' -- CSS Colors
-Plug 'dense-analysis/ale'
-Plug 'dracula/vim' -- Dr. A. Cula
-Plug('iamcco/markdown-preview.nvim', {['do'] = vim.fn['cd app && yarn install']}) -- Markdown Previews
-Plug 'kyazdani42/nvim-web-devicons' -- DevIcons
-Plug 'lewis6991/gitsigns.nvim' -- Git Signs
-Plug 'lukas-reineke/indent-blankline.nvim' -- Indent marks
-Plug 'MunifTanjim/nui.nvim' -- UI Component Library
-Plug 'machakann/vim-highlightedyank' -- Highlight Yank region
-Plug('neoclide/coc.nvim', {branch = 'release'})
-Plug 'nvim-lua/plenary.nvim' -- Lua functions
-Plug 'nvim-neo-tree/neo-tree.nvim' -- Access file systems
-Plug 'nvim-telescope/telescope.nvim'
-Plug('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn[':TSUpdate']})
-Plug 'preservim/tagbar'
-Plug 'ray-x/lsp_signature.nvim'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tanvirtin/monokai.nvim' -- Monokai
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tc50cal/vim-terminal'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-sleuth' -- Guess tabs and indents
-Plug 'tpope/vim-surround' -- Easy bracket manip
-Plug 'universal-ctags/ctags'
-Plug 'vim-airline/vim-airline' -- Status bar :)
-Plug 'vim-airline/vim-airline-themes'
-Plug 'wakatime/vim-wakatime' -- Wakatime
-Plug('WitherKNyx/LovelyNightEighties', {rtp = 'nvim'})
+Plug('akinsho/git-conflict.nvim')                                                   -- Git Merge conflicts
+Plug('ap/vim-css-color')                                                            -- CSS Colors
+Plug('benknoble/vim-mips')                                                          -- MIPS
+Plug('dense-analysis/ale')                                                          -- ALE
+Plug('dracula/vim')                                                                 -- Dr. A. Cula
+Plug('Eandrju/cellular-automaton.nvim')                                             -- Cellular Automata
+Plug('github/copilot.vim')                                                          -- GitHub Copilot
+Plug('iamcco/markdown-preview.nvim', {['do'] = vim.fn['cd app && yarn install']})   -- Markdown Previews
+Plug('kyazdani42/nvim-web-devicons')                                                -- DevIcons
+Plug('lewis6991/gitsigns.nvim')                                                     -- Git Signs
+Plug('lukas-reineke/indent-blankline.nvim')                                         -- Indent marks
+Plug('luochen1990/rainbow')                                                         -- Rainbow Parentheses
+Plug('MunifTanjim/nui.nvim')                                                        -- UI Component Library
+Plug('machakann/vim-highlightedyank')                                               -- Highlight Yank region
+Plug('mlr-msft/vim-loves-dafny', {['for'] = 'dafny'})                               -- Dafny
+Plug('neoclide/coc.nvim', {branch = 'release'})                                     -- Code Completion
+Plug('nvim-lua/plenary.nvim')                                                       -- Lua functions
+Plug('nvim-neo-tree/neo-tree.nvim')                                                 -- Access file systems
+Plug('nvim-telescope/telescope.nvim')                                               -- Access files
+Plug('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn[':TSUpdate']})             -- Syntax highlighter
+Plug('preservim/tagbar')                                                            -- Class outline
+Plug('ray-x/lsp_signature.nvim')                                                    -- Function signatures
+Plug('ryanoasis/vim-devicons')                                                      -- Icons for Plugins
+Plug('tanvirtin/monokai.nvim')                                                      -- Monokai
+Plug('terryma/vim-multiple-cursors')                                                -- Multiple Cursors, Ctrl + N
+Plug('tpope/vim-commentary')                                                        -- Comment things out easier, gcc
+Plug('tpope/vim-sleuth')                                                            -- Guess tabs and indents
+Plug('tpope/vim-surround')                                                          -- Easy bracket manip
+Plug('universal-ctags/ctags')                                                       -- Tagbar Supplement
+Plug('vim-airline/vim-airline')                                                     -- Status bar :)
+Plug('vim-airline/vim-airline-themes')                                              -- Themes!
+Plug('vim-latex/vim-latex')                                                         -- LaTeX
+Plug('wakatime/vim-wakatime')                                                       -- Wakatime
+Plug('WitherKNyx/LovelyNightEighties', {rtp = 'nvim'})                              -- My theme :3
 
 vim.call('plug#end')
 
@@ -43,12 +48,12 @@ vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.opt.smarttab = true
 vim.opt.smartcase = true
-vim.opt.smartindent = true
+vim.opt.cindent = true
 vim.opt.linebreak = true
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.autoindent = true
 
+vim.g['Tex_AdvancedMath'] = 1
 vim.g['syntastic_always_populate_loc_list'] = 1
 vim.g['syntastic_auto_loc_list'] = 1
 vim.g['syntastic_check_on_open'] = 1
@@ -62,13 +67,20 @@ syntax on
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+autocmd BufRead,BufNewFile *.s set filetype=mips
 ]]
 
 require'nvim-treesitter.configs'.setup{highlight={enable=true}}
 
--- vim.keymap.set('n', '<code>', TagbarToggle, {})
+----------------------- Latex Settings -----------------------
+vim.keymap.set('n', '<leader>co', ':w | !rubber --pdf --warn all %<CR>', {})
+vim.keymap.set('n', '<leader>cc', ':!rubber --clean --pdf %<CR>', {})
+vim.keymap.set('n', '<leader>v', ':!mupdf %:r.pdf &<CR><CR>', {})
 
----------------------- Indent Settings --------------------
+------------------  Rainbow Parens Settings  -----------------
+vim.g['rainbow_active'] = 1
+vim.cmd [[ let g:rainbow_conf = {'guifgs': ['#FF8C8E', '#FFAC80', '#FFEA80', '#8AE599', '#73E5E5', '#7399E5', '#E391E5'], 'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'], 'guis': [''], 'cterms': [''], 'operators': '_,_', 'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'], 'separately': {'*': {}, 'markdown': {'parentheses_options': 'containedin=markdownCode contained'}, 'lisp': {'guifgs': ['#FF8C8E', '#FFAC80', '#FFEA80', '#8AE599', '#73E5E5', '#7399E5', '#E391E5']}, 'haskell': {'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/\v\{\ze[^-]/ end=/}/ fold']}, 'vim': {'parentheses_options': 'containedin=vimFuncBody'}, 'perl': {'syn_name_prefix': 'perlBlockFoldRainbow'}, 'stylus': {'parentheses': ['start=/{/ end=/}/ fold contains=@colorableGroup']}, 'css': 0}}]]
+---------------------- Indent  Settings ----------------------
 vim.opt.termguicolors = true
 vim.cmd [[highlight IndentBlanklineIndent1 guifg=#FF8C8E gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent2 guifg=#FFEA80 gui=nocombine]]
@@ -77,31 +89,39 @@ vim.cmd [[highlight IndentBlanklineIndent4 guifg=#73E5E5 gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent5 guifg=#7399E5 gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent6 guifg=#E391E5 gui=nocombine]]
 
-vim.opt.list = true
-vim.opt.listchars:append "space:⋅"
-vim.opt.listchars:append "eol:↴"
+--require("indent_blankline").setup {
+--    char_highlight_list = {
+--        "IndentBlanklineIndent1",
+--        "IndentBlanklineIndent2",
+--        "IndentBlanklineIndent3",
+--        "IndentBlanklineIndent4",
+--        "IndentBlanklineIndent5",
+--        "IndentBlanklineIndent6",
+--    },
+--}
 
-require("indent_blankline").setup {
-    show_end_of_line = true,
-    space_char_blankline = " ",
-    char_highlight_list = {
-        "IndentBlanklineIndent1",
-        "IndentBlanklineIndent2",
-        "IndentBlanklineIndent3",
-        "IndentBlanklineIndent4",
-        "IndentBlanklineIndent5",
-        "IndentBlanklineIndent6",
-    },
-}
+-- Keymaps
+-- n = normal
+-- i = insert
+-- v = visual and select
+-- s = select
+-- x = visual
+-- o = operator-pending
+-- ! = insert and command-line
+-- c = command-line
+-- t = terminal
+--
+-------------------------- Tagbar ----------------------------
+vim.keymap.set('n', '<F8>', 'TagbarToggle', {})
 
--------------------- Telescope Settings --------------------
+--------------------- Telescope Settings ---------------------
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<space>ff', builtin.find_files, {})
 vim.keymap.set('n', '<space>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<space>fb', builtin.buffers, {})
 vim.keymap.set('n', '<space>fh', builtin.help_tags, {})
 
------------------------ CoC Settings -----------------------
+-----------------------  CoC Settings  -----------------------
 -- Some servers have issues with backup files, see #649.
 vim.opt.backup = false
 vim.opt.writebackup = false

@@ -175,5 +175,8 @@ super + w
 super + n 
   thunar  
 
+super + e
+  discord
+
 super + F1
   ~/.config/bspwm/scripts/keybindings_rofi.sh
