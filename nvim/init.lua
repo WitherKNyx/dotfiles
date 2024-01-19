@@ -26,12 +26,13 @@ Plug('ray-x/lsp_signature.nvim')                                                
 Plug('ryanoasis/vim-devicons')                                                      -- Icons for Plugins
 Plug('tanvirtin/monokai.nvim')                                                      -- Monokai
 Plug('terryma/vim-multiple-cursors')                                                -- Multiple Cursors, Ctrl + N
-Plug('tpope/vim-commentary')                                                        -- Comment things out easier, gcc
+Plug('tpope/vim-commentary')                                                        -- Comment things out easier
 Plug('tpope/vim-sleuth')                                                            -- Guess tabs and indents
 Plug('tpope/vim-surround')                                                          -- Easy bracket manip
 Plug('universal-ctags/ctags')                                                       -- Tagbar Supplement
 Plug('vim-airline/vim-airline')                                                     -- Status bar :)
 Plug('vim-airline/vim-airline-themes')                                              -- Themes!
+Plug('vim-autoformat/vim-autoformat')                                               -- Autoformat
 Plug('vim-latex/vim-latex')                                                         -- LaTeX
 Plug('wakatime/vim-wakatime')                                                       -- Wakatime
 Plug('WitherKNyx/LovelyNightEighties', {rtp = 'nvim'})                              -- My theme :3

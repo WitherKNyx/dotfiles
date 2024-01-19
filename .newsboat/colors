@@ -1,0 +1,14 @@
+# a newsbeuter color scheme especially designed for dark environments
+
+color background          white    black
+color listnormal          white    black
+color listfocus           color51  color93
+color listnormal_unread   color93  black
+color listfocus_unread    color51  color93  bold
+color title               color51  color93  bold
+color info                yellow   color93  bold
+color hint-key            yellow   color93  bold
+color hint-keys-delimiter yellow   color93
+color hint-separator      yellow   color93  bold
+color hint-description    color51  color93
+color article             white    black

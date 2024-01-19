@@ -1,0 +1,8 @@
+1
+q
+4
+q
+set pager "/home/nyx/.newsboat/kitty-img-pager.sh"
+open
+open
+set pager internal
