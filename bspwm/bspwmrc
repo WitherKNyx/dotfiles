@@ -32,9 +32,9 @@ bspc config active_border_color         "#120c1f"
 # Autostart
 #
 # Set display from arandr saved script
-sh ~/.screenlayout/monitor.sh &
+# sh ~/.screenlayout/monitor.sh &
 # Bar
-~/.config/polybar.old/launch.sh &
+~/.config/polybar/launch.sh &
 # Notifications
 /usr/bin/dunst &
 # Polkit

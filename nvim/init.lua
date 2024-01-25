@@ -2,7 +2,6 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.local/share/nvim/plugged')
 
 Plug('akinsho/git-conflict.nvim')                                                   -- Git Merge conflicts
-Plug('ap/vim-css-color')                                                            -- CSS Colors
 Plug('benknoble/vim-mips')                                                          -- MIPS
 Plug('dense-analysis/ale')                                                          -- ALE
 Plug('dracula/vim')                                                                 -- Dr. A. Cula
@@ -17,6 +16,7 @@ Plug('MunifTanjim/nui.nvim')                                                    
 Plug('machakann/vim-highlightedyank')                                               -- Highlight Yank region
 Plug('mlr-msft/vim-loves-dafny', {['for'] = 'dafny'})                               -- Dafny
 Plug('neoclide/coc.nvim', {branch = 'release'})                                     -- Code Completion
+Plug('norcalli/nvim-colorizer.lua')                                                 -- Color HL
 Plug('nvim-lua/plenary.nvim')                                                       -- Lua functions
 Plug('nvim-neo-tree/neo-tree.nvim')                                                 -- Access file systems
 Plug('nvim-telescope/telescope.nvim')                                               -- Access files
@@ -38,6 +38,9 @@ Plug('wakatime/vim-wakatime')                                                   
 Plug('WitherKNyx/LovelyNightEighties', {rtp = 'nvim'})                              -- My theme :3
 
 vim.call('plug#end')
+
+vim.opt.termguicolors = true
+require'colorizer'.setup()
 
 -- Basic Settings
 vim.opt.tabstop = 4
@@ -73,34 +76,10 @@ autocmd BufRead,BufNewFile *.s set filetype=mips
 
 require'nvim-treesitter.configs'.setup{highlight={enable=true}}
 
------------------------ Latex Settings -----------------------
-vim.keymap.set('n', '<leader>co', ':w | !rubber --pdf --warn all %<CR>', {})
-vim.keymap.set('n', '<leader>cc', ':!rubber --clean --pdf %<CR>', {})
-vim.keymap.set('n', '<leader>v', ':!mupdf %:r.pdf &<CR><CR>', {})
-
 ------------------  Rainbow Parens Settings  -----------------
 vim.g['rainbow_active'] = 1
 vim.cmd [[ let g:rainbow_conf = {'guifgs': ['#FF8C8E', '#FFAC80', '#FFEA80', '#8AE599', '#73E5E5', '#7399E5', '#E391E5'], 'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'], 'guis': [''], 'cterms': [''], 'operators': '_,_', 'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'], 'separately': {'*': {}, 'markdown': {'parentheses_options': 'containedin=markdownCode contained'}, 'lisp': {'guifgs': ['#FF8C8E', '#FFAC80', '#FFEA80', '#8AE599', '#73E5E5', '#7399E5', '#E391E5']}, 'haskell': {'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/\v\{\ze[^-]/ end=/}/ fold']}, 'vim': {'parentheses_options': 'containedin=vimFuncBody'}, 'perl': {'syn_name_prefix': 'perlBlockFoldRainbow'}, 'stylus': {'parentheses': ['start=/{/ end=/}/ fold contains=@colorableGroup']}, 'css': 0}}]]
----------------------- Indent  Settings ----------------------
-vim.opt.termguicolors = true
-vim.cmd [[highlight IndentBlanklineIndent1 guifg=#FF8C8E gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent2 guifg=#FFEA80 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent3 guifg=#8AE599 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent4 guifg=#73E5E5 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent5 guifg=#7399E5 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent6 guifg=#E391E5 gui=nocombine]]
-
---require("indent_blankline").setup {
---    char_highlight_list = {
---        "IndentBlanklineIndent1",
---        "IndentBlanklineIndent2",
---        "IndentBlanklineIndent3",
---        "IndentBlanklineIndent4",
---        "IndentBlanklineIndent5",
---        "IndentBlanklineIndent6",
---    },
---}
-
+--
 -- Keymaps
 -- n = normal
 -- i = insert

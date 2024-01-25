@@ -1,0 +1,19 @@
+{
+  "segments": [
+    "newline",
+    "battery",
+    "time",
+    "username",
+    "hostname",
+    "newline",
+    "cwd",
+    "virtual_env",
+    "ssh",
+    "git",
+    "git_stash",
+    "hg",
+    "jobs",
+    "root",
+    "exit_code"
+  ]
+}
