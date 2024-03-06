@@ -36,7 +36,7 @@ s({trig="<<", snippetType="autosnippet"},
 		}
 	)
 ),
-s({trig="([^%a])mm", wordTrig=false, regTrig=true},
+s({trig="([^%a])mm", snippetType="autosnippet", wordTrig=false, regTrig=true},
 	fmta(
 		"<>$<>$",
 		{
@@ -45,9 +45,13 @@ s({trig="([^%a])mm", wordTrig=false, regTrig=true},
 		}
 	)
 ),
-s({trig="([^%a])MM", wordTrig=false, regTrig=true},
+s({trig="([^%a])MM", snippetType="autosnippet", wordTrig=false, regTrig=true},
 	fmta(
-		"<>$$<>$$",
+		[[
+			<>\[ 
+					<> 
+				\]
+		]],
 		{
 			f(function(_, snip) return snip.captures[1] end),
 			d(1, get_visual)
