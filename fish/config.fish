@@ -49,3 +49,4 @@ export WINEPREFIX=/home/nyx/.wine
 zoxide init --cmd cd fish | source
 # Path
 fish_add_path ~/.config/emacs/bin
+fish_add_path ~/.local/share/gem/ruby/3.0.0/bin
