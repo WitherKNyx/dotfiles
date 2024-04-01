@@ -24,6 +24,8 @@ alias gittop "pushd \"\$(git rev-parse --show-toplevel)\""
 alias cl "clear; neofetch"
 alias reset-pacman "sudo rm -rf /etc/pacman.d/gnupg /var/lib/pacman/sync; sudo pacman-key --init; sudo pacman-key --populate"
 alias targz-extract "tar -xf"
+alias game-on "xinput set-prop 12 330 0"
+alias game-off "xinput set-prop 12 330 1"
 #alias targz-compress
 
 # Prompt
@@ -50,3 +52,4 @@ zoxide init --cmd cd fish | source
 # Path
 fish_add_path ~/.config/emacs/bin
 fish_add_path ~/.local/share/gem/ruby/3.0.0/bin
+fish_add_path ~/.cargo/bin

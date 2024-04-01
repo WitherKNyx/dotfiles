@@ -13,6 +13,12 @@ end
 Map_key({'n', 'v'}, '<C-j>', '<C-e>')
 Map_key({'n', 'v'}, '<C-k>', '<C-y>')
 
+Map_key('n', '<Tab>', '>>4l')
+Map_key('n', '<S-Tab>', '4h<<')
+--Map_key('v', '<Tab>', '>gv')
+--Map_key('v', '<S-Tab>', '<gvh')
+Map_key('i', '<S-Tab>', '<C-d>')
+
 Map_key('n', '<CR>', '<Cmd>noh<CR>')
 
 Map_key('n', '<A-j>', ':m +1<CR>==')

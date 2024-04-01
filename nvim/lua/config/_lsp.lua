@@ -23,5 +23,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
 	end
 })
 
-require('config.mason')
-require('config.cmp')
+require('config._mason')
+require('config._cmp')

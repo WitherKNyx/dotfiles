@@ -4,15 +4,9 @@ local s = ls.snippet
 local sn = ls.snippet_node
 local t = ls.text_node
 local i = ls.insert_node
-local f = ls.function_node
-local c = ls.choice_node
 local d = ls.dynamic_node
 local r = ls.restore_node
-local fmt = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
-local rep = require("luasnip.extras").rep
-local util = require("luasnip.util.util")
-local node_util = require("luasnip.nodes.util")
 
 local function column_count_from_string(descr)
 	-- this won't work for all cases, but it's simple to improve
@@ -52,7 +46,7 @@ s({trig="EEN", dscr="Creates a enumerate environment", snippetType="autosnippet"
 	fmta(
 		[[
 			\begin{enumerate}
-				<>
+				\item <>
 			\end{enumerate}
 		]],
 		{ i(1) }
@@ -62,7 +56,7 @@ s({trig="EIT", dscr="Creates a itemize environment", snippetType="autosnippet"},
 	fmta(
 		[[
 			\begin{itemize}
-				<>
+				\item <>
 			\end{itemize}
 		]],
 		{ i(1) }
@@ -81,13 +75,17 @@ s({trig="EEQ", dscr="Creates a equation environment", snippetType="autosnippet"}
 s({trig="ECA", dscr="Creates a cases environment", snippetType="autosnippet"},
 	fmta(
 		[[
-			\begin{cases}
-				<>
-			\end{cases}
+			\[
+				\begin{cases}
+					<> & <> \\
+				\end{cases}
+			\]
 		]],
-		{ i(1) }
-	),
-	{ condition = helpers.in_mathzone }
+		{
+			i(1),
+			i(2)
+		}
+	)
 ),
 s({trig="EAL", dscr="Creates a align environment", snippetType="autosnippet"},
 	fmta(

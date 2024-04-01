@@ -8,9 +8,8 @@ local f = ls.function_node
 local c = ls.choice_node
 local d = ls.dynamic_node
 local r = ls.restore_node
-local fmt = require("luasnip.extras.fmt").fmt
+local rep = require('luasnip.extras').rep
 local fmta = require("luasnip.extras.fmt").fmta
-local rep = require("luasnip.extras").rep
 
 local int1 = function(_, snip)
     local vars = tonumber(snip.captures[1])
@@ -49,6 +48,9 @@ s({trig="(%d)int", snippetType="autosnippet", wordTrig=false, regTrig=true},
 				c(1, { t(""), t("o") }),
 				f(function(_, parent, _)
 					local inum = tonumber(parent.parent.captures[1])
+					if inum == nil then
+						return
+					end
 					local res = string.rep("i", inum)
 					return res
 				end),
@@ -62,6 +64,41 @@ s({trig="(%d)int", snippetType="autosnippet", wordTrig=false, regTrig=true},
 	}),
 	{condition = helpers.in_mathzone}
 ),
+s({trig="seq", dscr="Initialize a sequence of elements"}, 
+	{
+		c(1, {
+			fmta("<>,\\dots,<>", {
+				i(1, 'x'),
+				i(2, 'z')
+			}),
+			fmta("<>_<>,\\dots,<>_<>", {
+				i(1, 'x'),
+				i(2, '1'),
+				rep(1),
+				i(3, 'n')
+			}),
+			fmta("<>,<>,\\dots,<>", {
+				i(1, 'x'),
+				i(2, 'y'),
+				i(3, 'z')
+			}),
+			fmta("<>_<>,<>_<>,\\dots,<>_<>", {
+				i(1, 'x'),
+				i(2, '1'),
+				rep(1),
+				i(3, '2'),
+				rep(1),
+				i(4, 'n')
+			})
+		})
+	},
+	{ condition = helpers.in_mathzone() }
+),
+-- -- Do: 
+-- -- x_a,x_b,...,x_c
+-- -- x_a,\dots,x_c
+-- -- x,y,\dots,z
+-- -- x,\dots,z
 s({trig="__", dscr="subscripting", snippetType="autosnippet", wordTrig=false, regTrig=true},
 	fmta("<>_{<>}",
 	{
