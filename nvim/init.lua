@@ -32,6 +32,7 @@ Plug('levouh/tint.nvim')                                 -- Tinting Windows
 Plug('lewis6991/gitsigns.nvim')                          -- Git Signs
 Plug('lukas-reineke/indent-blankline.nvim')              -- Indent marks
 Plug('machakann/vim-highlightedyank')                    -- Highlight Yank region
+Plug('mistricky/codesnap.nvim', { ['do'] = 'make' })     -- Code Screenshots
 Plug('MunifTanjim/nui.nvim')                             -- UI Component Library
 Plug('norcalli/nvim-colorizer.lua')                      -- Color HL
 Plug('nvim-lualine/lualine.nvim')                        -- Statusline
@@ -64,6 +65,7 @@ Plug('mlr-msft/vim-loves-dafny', { ['for'] = 'dafny' }) -- Dafny
 
 ---- Misc
 Plug('Eandrju/cellular-automaton.nvim') -- Cellular Automata
+Plug('m4xshen/hardtime.nvim')			-- Better workflow :(
 Plug('wakatime/vim-wakatime')           -- Wakatime
 
 vim.call('plug#end')
@@ -73,6 +75,8 @@ vim.cmd('colorscheme lovelynight80s')
 -------------------------  Plugin Settings  -------------------------
 require('config._nvim-web-devicons')
 require('config._aerial')
+require('config._codesnap')
+require('config._hardtime')
 require('config._notify')
 require('config._lualine')
 require('config._luasnip')

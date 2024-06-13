@@ -112,16 +112,17 @@ s({trig="EFI", dscr="Creates a figure environment", snippetType="autosnippet"},
 		[[
 			\begin{figure}[<>]
 				\centering
-				\includegraphics[]{<>}
+				\includegraphics[<>]{<>}
 				\caption{<>}
 				\label{fig:<>}
 			\end{figure}<>
 		]],
 		{
 			i(1, "<htbp>"),
-			i(2),
+			i(2, "scale=0.5"),
 			i(3),
-			i(4, "label"),
+			i(4),
+			i(5, "label"),
 			i(0)
 		}
 	)

@@ -21,22 +21,26 @@ alias gitget "git log --author witherkedward@gmail.com | grep ^commit"
 alias gitmake "gh repo create --public --source=. --remote=upstream --push"
 alias gittop "pushd \"\$(git rev-parse --show-toplevel)\""
 ## Other
-alias cl "clear; neofetch"
+alias cl "clear; hyfetch -b fastfetch"
 alias reset-pacman "sudo rm -rf /etc/pacman.d/gnupg /var/lib/pacman/sync; sudo pacman-key --init; sudo pacman-key --populate"
 alias targz-extract "tar -xf"
 alias game-on "xinput set-prop 12 330 0"
 alias game-off "xinput set-prop 12 330 1"
+alias wttr "curl 'wttr.in/?m2nQF'"
 #alias targz-compress
 
 # Prompt
 function fish_prompt
-	powerline-shell --shell bare $status
+	echo
+	eval $GOPATH/bin/powerline-go -modules newline,time,user,host,newline,cwd,venv,ssh,perms,git,hg,jobs,root,exit -error $status -jobs (count (jobs -p))
+	# eval $GOPATH/bin/powerline-go -modules newline,battery,time,user,host,newline,cwd,venv,ssh,perms,git,hg,jobs,root,exit -error $status -jobs (count (jobs -p))
 end
 
 # Greeting
 function fish_greeting
-	neofetch
+	hyfetch -b fastfetch
 	echo Welcome to (set_color 0FD)$hostname(set_color normal), (set_color -o 9133FF)$USER(set_color normal)
+	curl 'wttr.in/?m0Q'
 end
 
 if status is-interactive
@@ -47,6 +51,7 @@ export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
 export EDITOR=nvim
 export VISUAL=nvim
 export WINEPREFIX=/home/nyx/.wine
+export GOPATH=/home/nyx/go
 
 zoxide init --cmd cd fish | source
 # Path

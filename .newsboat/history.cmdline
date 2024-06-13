@@ -6,3 +6,6 @@ set pager "/home/nyx/.newsboat/kitty-img-pager.sh"
 open
 open
 set pager internal
+q
+7
+q

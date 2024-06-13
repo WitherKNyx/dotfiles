@@ -178,5 +178,8 @@ super + e
 super + o
   obsidian
 
+super + z
+	zathura
+
 super + F1
   ~/.config/bspwm/scripts/keybindings_rofi.sh
