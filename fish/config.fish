@@ -32,8 +32,8 @@ alias wttr "curl 'wttr.in/?m2nQF'"
 # Prompt
 function fish_prompt
 	echo
-	eval $GOPATH/bin/powerline-go -modules newline,time,user,host,newline,cwd,venv,ssh,perms,git,hg,jobs,root,exit -error $status -jobs (count (jobs -p))
-	# eval $GOPATH/bin/powerline-go -modules newline,battery,time,user,host,newline,cwd,venv,ssh,perms,git,hg,jobs,root,exit -error $status -jobs (count (jobs -p))
+	# eval $GOPATH/bin/powerline-go -modules newline,time,user,host,newline,cwd,venv,ssh,perms,git,hg,jobs,root,exit -error $status -jobs (count (jobs -p))
+	eval $GOPATH/bin/powerline-go -modules newline,battery,time,user,host,newline,cwd,venv,ssh,perms,git,hg,jobs,root,exit -error $status -jobs (count (jobs -p))
 end
 
 # Greeting
@@ -58,3 +58,4 @@ zoxide init --cmd cd fish | source
 fish_add_path ~/.config/emacs/bin
 fish_add_path ~/.local/share/gem/ruby/3.0.0/bin
 fish_add_path ~/.cargo/bin
+fish_add_path ~/go/bin

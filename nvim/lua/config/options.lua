@@ -26,5 +26,15 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.foldenable = true
 
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+
 vim.cmd('syntax on')
 vim.cmd('filetype plugin on')
+
+vim.cmd([[
+	augroup highlight_yank
+	autocmd!
+	au TextYankPost * silent! lua vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 1000 })
+	augroup END
+]])
