@@ -8,13 +8,6 @@ return {
 		end
 	},
 	{
-		"nvim-neorg/neorg",
-		ft = "norg",
-		opts = {
-			load = { ["core.defaults"] = {} },
-		},
-	},
-	{
 		'tomiis4/BufferTabs.nvim',
 		dependencies = {
 			{ 'nvim-tree/nvim-web-devicons' }
@@ -36,7 +29,6 @@ return {
 			vim.cmd('ColorizerAttachToBuffer')
 		end
 	},
-	{ 'mg979/vim-visual-multi', branch = 'master', enabled = false },
 	{ 'akinsho/toggleterm.nvim', version = "*", config = true },
 	{ 'akinsho/git-conflict.nvim', version = '*', config = true },
 	{ 'numToStr/Comment.nvim', opts = {} },
@@ -46,9 +38,9 @@ return {
 	{ 'MunifTanjim/nui.nvim' },
 	{ 'ryanoasis/vim-devicons' },
 	{ 'tpope/vim-surround' },
-	{ 'benknoble/vim-mips' },
-	{ 'Eandrju/cellular-automaton.nvim' },
+	{ 'benknoble/vim-mips', ft = 'mips' },
 	{ 'nvim-lua/plenary.nvim' },
-	{ 'tanvirtin/monokai.nvim' },
-	{ 'dracula/vim' }
+	{ 'Eandrju/cellular-automaton.nvim', lazy = 'VeryLazy', cmd = { 'CellularAutomaton' } },
+	{ 'tanvirtin/monokai.nvim', lazy = 'VeryLazy' },
+	{ 'dracula/vim', lazy = 'VeryLazy' }
 }

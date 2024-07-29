@@ -1,6 +1,8 @@
 return {{
 	'mistricky/codesnap.nvim',
 	build = 'make',
+	lazy = 'VeryLazy',
+	cmd = { 'CodeSnap', 'CodeSnapSave', 'CodeSnapASCII', 'CodeSnapHighlight', 'CodeSnapSaveHighlight' },
 	opt = {
 		save_path = '~/Pictures/Screenshots/',
 		mac_window_bar = true,

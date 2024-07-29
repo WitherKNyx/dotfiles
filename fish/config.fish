@@ -29,18 +29,11 @@ alias game-off "xinput set-prop 12 330 1"
 alias wttr "curl 'wttr.in/?m2nQF'"
 #alias targz-compress
 
-# Prompt
-function fish_prompt
-	echo
-	# eval $GOPATH/bin/powerline-go -modules newline,time,user,host,newline,cwd,venv,ssh,perms,git,hg,jobs,root,exit -error $status -jobs (count (jobs -p))
-	eval $GOPATH/bin/powerline-go -modules newline,battery,time,user,host,newline,cwd,venv,ssh,perms,git,hg,jobs,root,exit -error $status -jobs (count (jobs -p))
-end
-
 # Greeting
 function fish_greeting
 	hyfetch -b fastfetch
 	echo Welcome to (set_color 0FD)$hostname(set_color normal), (set_color -o 9133FF)$USER(set_color normal)
-	curl 'wttr.in/?m0Q'
+	# curl 'wttr.in/?m0Q'
 end
 
 if status is-interactive
@@ -59,3 +52,12 @@ fish_add_path ~/.config/emacs/bin
 fish_add_path ~/.local/share/gem/ruby/3.0.0/bin
 fish_add_path ~/.cargo/bin
 fish_add_path ~/go/bin
+
+# Prompt
+function fish_prompt
+	echo
+	eval $GOPATH/bin/powerline-go -modules newline,battery,time,user,host,newline,cwd,venv,ssh,perms,git,hg,jobs,root,exit -error $status -jobs (count (jobs -p))
+end
+
+# oh-my-posh init fish | source
+# starship init fish | source

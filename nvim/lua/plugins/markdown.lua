@@ -13,7 +13,16 @@ return {
 	{
 		'tadmccorkle/markdown.nvim',
 		ft = { 'markdown' },
-		opts = {}
+		opts = {
+			on_attach = function(bufnr)
+				local map = vim.keymap.set
+				local opts = { buffer = bufnr }
+				map({ 'n', 'i' }, '<A-l><A-o>', '<cmd>MDListItemBelow<CR>', opts)
+				map({ 'n', 'i' }, '<A-L><A-O>', '<cmd>MDListItemAbove<CR>', opts)
+				map('n', '<M-c>', '<cmd>MDTaskToggle<CR>', opts)
+				map('x', '<M-c>', ':MDTaskToggle<CR>', opts)
+			end
+		}
 	},
 	{
 		'MeanderingProgrammer/markdown.nvim',

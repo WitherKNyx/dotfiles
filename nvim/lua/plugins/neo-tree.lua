@@ -7,10 +7,13 @@ return {{
 		{ 'MunifTanjim/nui.nvim' },
 		{ '3rd/image.nvim' }
 	},
+	lazy = false,
 	keys = {
 		{ '<leader>e', '<cmd>Neotree filesystem toggle<CR>', { desc = 'Toggle file explorer' } }
 	},
-	opts = {},
+	opts = {
+		hijack_netrw_behavior = 'open_current',
+	},
 	init = function()
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
