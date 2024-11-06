@@ -13,12 +13,13 @@ set -o pipefail
 set -o nounset
 
 
-image=$(grep -E -o "https?://[a-zA-Z0-9./?=_%:-]*" < "${1}" | tail -1)
+image=$(grep -E -o "https?://[a-zA-Z0-9./?=_%:-]*" < "${1}" | head -2 | tail -1)
 
 # Detect terminal dimensions
 dims="$(tput cols)x$(tput lines)@0x0"
 
 clear
 kitty +kitten icat --clear
+echo "$image"
 kitty +kitten icat --hold --scale-up --place "$dims" "$image"
 clear

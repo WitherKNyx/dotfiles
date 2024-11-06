@@ -19,7 +19,7 @@ Map_key('n', '<S-Tab>', '4h<<')
 --Map_key('v', '<S-Tab>', '<gvh')
 Map_key('i', '<S-Tab>', '<C-d>')
 
-Map_key('n', '<Space>', '<Cmd>noh<CR>')
+Map_key('n', '<Space>', '<Cmd>noh | lua require("notify").dismiss()<CR>')
 
 Map_key('n', '<A-j>', ':m +1<CR>==')
 Map_key('x', '<A-j>', ':m \'>+1<CR>gv-gv')

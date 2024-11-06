@@ -12,6 +12,14 @@ return {{
 		{ '<leader>e', '<cmd>Neotree filesystem toggle<CR>', { desc = 'Toggle file explorer' } }
 	},
 	opts = {
+		window = {
+			mappings = {
+				["P"] = { 
+					"toggle_preview", 
+					config = { use_float = false, use_image_nvim = true } 
+				},
+			}
+		},
 		hijack_netrw_behavior = 'open_current',
 	},
 	init = function()

@@ -18,7 +18,6 @@ vim.opt.inccommand = 'split'
 vim.opt.expandtab = false
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
-vim.opt.smarttab = true
 vim.opt.smartcase = true
 vim.opt.cindent = true
 vim.opt.linebreak = true

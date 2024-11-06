@@ -16,12 +16,14 @@ alias coreson "ulimit -c unlimited"
 alias coresoff "ulimit -c 0"
 alias gradletest "gradle test --tests"
 alias g+++ "g++ -g -Wall -Wextra -pedantic -std=c++23 -lGL -lGLU -lm -lX11 -lpthread -lXrandr -lXi -ldl -lXinerama -lXcursor -lglfw"
+alias salsac "java -cp ~/Documents/salsa1.1.6.jar:. salsac.SalsaCompiler; javac -classpath ~/Documents/salsa1.1.6.jar:."
+alias salsa "java -cp ~/Documents/salsa1.1.6.jar:."
 ## Git
 alias gitget "git log --author witherkedward@gmail.com | grep ^commit"
 alias gitmake "gh repo create --public --source=. --remote=upstream --push"
 alias gittop "pushd \"\$(git rev-parse --show-toplevel)\""
 ## Other
-alias cl "clear; hyfetch -b fastfetch"
+alias cl "clear; hyfetch -b fastfetch --distro=arch"
 alias reset-pacman "sudo rm -rf /etc/pacman.d/gnupg /var/lib/pacman/sync; sudo pacman-key --init; sudo pacman-key --populate"
 alias targz-extract "tar -xf"
 alias game-on "xinput set-prop 12 330 0"
@@ -31,9 +33,9 @@ alias wttr "curl 'wttr.in/?m2nQF'"
 
 # Greeting
 function fish_greeting
-	hyfetch -b fastfetch
+	hyfetch -b fastfetch --distro=arch
 	echo Welcome to (set_color 0FD)$hostname(set_color normal), (set_color -o 9133FF)$USER(set_color normal)
-	# curl 'wttr.in/?m0Q'
+	# curl 'wttr.in/?m0Q' &
 end
 
 if status is-interactive
