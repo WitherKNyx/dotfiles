@@ -28,7 +28,7 @@ vim.opt.foldenable = true
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
 
-vim.cmd('syntax on')
+-- vim.cmd('syntax enable')
 vim.cmd('filetype plugin on')
 
 vim.cmd([[

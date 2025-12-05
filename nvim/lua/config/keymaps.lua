@@ -13,8 +13,8 @@ end
 Map_key({'n', 'v'}, '<C-j>', '<C-e>')
 Map_key({'n', 'v'}, '<C-k>', '<C-y>')
 
-Map_key('n', '<Tab>', '>>4l')
-Map_key('n', '<S-Tab>', '4h<<')
+Map_key('n', '<Tab>', '4l>>')
+Map_key('n', '<S-Tab>', '<<4h')
 --Map_key('v', '<Tab>', '>gv')
 --Map_key('v', '<S-Tab>', '<gvh')
 Map_key('i', '<S-Tab>', '<C-d>')
@@ -36,3 +36,6 @@ Map_key('v', '<A-k>', ':m \'<-2<CR>gv')
 Map_key('n', '<A-Up>', ':m -2<CR>==')
 Map_key('x', '<A-k>', ':m \'<-2<CR>gv-gv')
 Map_key('v', '<A-k>', ':m \'<-2<CR>gv')
+
+Map_key('n', '<C-\\>', '<Cmd>set shiftwidth=2<CR><Cmd>set expandtab<CR>')
+Map_key('n', '<S-\\>', '<Cmd>set shiftwidth=4<CR><Cmd>set expandtab!<CR>')

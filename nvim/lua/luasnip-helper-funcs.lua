@@ -215,7 +215,8 @@ function M.get_visual(_, parent)
 end
 
 M.in_mathzone = function()
-	return vim.fn['vimtex#syntax#in_mathzone']() == 1
+	return false
+	-- return vim.api.nvim_eval('vimtex#syntax#in_mathzone()') == 1
 end
 
 M.in_text = function()

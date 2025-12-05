@@ -8,6 +8,7 @@ return {{
 		load = {
 			['core.defaults'] = {},
 			['core.concealer'] = {},
+			['core.latex.renderer'] = {},
 			['core.dirman'] = {
 				config = {
 					workspaces = {
